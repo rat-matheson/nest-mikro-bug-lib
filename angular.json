@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "@ngxTmp/bug-repo": {
+      "projectType": "library",
+      "root": "projects/ngx-tmp/bug-repo",
+      "sourceRoot": "projects/ngx-tmp/bug-repo/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-tmp/bug-repo/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-tmp/bug-repo/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-tmp/bug-repo/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-tmp/bug-repo/src/test.ts",
+            "tsConfig": "projects/ngx-tmp/bug-repo/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-tmp/bug-repo/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "@ngxTmp/bug-repo"
 }
